@@ -17,11 +17,17 @@ The logic is in `@autoura/ui/lib`, with no React, so API routes can import it:
 
 ## Install
 
-A git dependency pinned to a tag. Both repos are public, so no token is needed:
+A git dependency pinned to a release. The repo is public, so no token is needed, and
+npm fetches it over HTTPS. Pin a tag (`#v0.1.0`) or, for one that can never move, the
+release commit:
 
 ```json
-"@autoura/ui": "github:desertcanvasart-dotcom/autoura-ui#v0.1.0"
+"@autoura/ui": "github:desertcanvasart-dotcom/autoura-ui#66fffef0aa408fe8e6e4cc28038ae0ff5b6d5e59"
 ```
+
+| Version | Commit |
+|---|---|
+| 0.1.0 | `66fffef0aa408fe8e6e4cc28038ae0ff5b6d5e59` |
 
 `dist/` is committed, so installing runs no build. Then:
 
@@ -52,5 +58,5 @@ Components don't fetch. The app loads data and passes it in, and wires callbacks
 
 1. Change `src/`, run `npm run typecheck && npm test && npm run build`, and commit `dist/` with it.
    CI fails if `dist/` doesn't match `src/`.
-2. Bump `version`, tag `vX.Y.Z` and push the tag.
-3. In each app, bump the `#vX.Y.Z` in `package.json` and run `npm install`.
+2. Bump `version`, tag `vX.Y.Z`, push the tag, and add the commit to the table above.
+3. In each app, point `package.json` at the new tag or commit and run `npm install`.
