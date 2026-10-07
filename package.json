@@ -1,0 +1,37 @@
+{
+  "name": "@autoura/ui",
+  "version": "0.1.0",
+  "description": "Shared itinerary-page components and logic for travel-ops-pro and autoura-saas.",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist", "README.md"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./lib": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "check:dist": "npm run build && git diff --exit-code -- dist"
+  },
+  "peerDependencies": {
+    "lucide-react": ">=0.400.0",
+    "react": ">=18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "lucide-react": "^0.553.0",
+    "react": "^19.2.1",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.4"
+  }
+}
